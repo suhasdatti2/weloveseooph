@@ -1,0 +1,310 @@
+/* NHD 2026 — "Revolution, Reaction, Reform in History"
+   The Nintendo Entertainment System
+   A scholarly, archival aesthetic — informational, not commercial. */
+
+:root {
+  --ink: #1c1a17;
+  --paper: #f4f1ea;
+  --paper-deep: #e9e4d8;
+  --rule: #cfc7b5;
+  --accent: #b3122c;      /* NES red */
+  --accent-dark: #7c0c1f;
+  --slate: #3a4654;        /* NES grey console */
+  --muted: #5f5a50;
+  --gold: #b8893d;
+  --max: 980px;
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
+  font-size: 18px;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ---------- Masthead ---------- */
+.masthead {
+  background: var(--slate);
+  color: #f4f1ea;
+  border-bottom: 5px solid var(--accent);
+}
+.masthead-inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 26px 24px 18px;
+}
+.eyebrow {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 12px;
+  color: #c9d2dc;
+  margin: 0 0 6px;
+}
+.masthead h1 {
+  font-size: clamp(28px, 5vw, 46px);
+  line-height: 1.12;
+  margin: 0 0 8px;
+  font-weight: 700;
+  letter-spacing: 0.5px;
+}
+.masthead .sub {
+  margin: 0;
+  color: #d8dde3;
+  font-style: italic;
+  font-size: clamp(15px, 2.4vw, 19px);
+}
+.theme-tag {
+  display: inline-block;
+  margin-top: 14px;
+  padding: 5px 12px;
+  border: 1px solid rgba(255,255,255,.4);
+  border-radius: 2px;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 11px;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #f0e2c8;
+}
+
+/* ---------- Navigation ---------- */
+nav.primary {
+  background: var(--ink);
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  border-bottom: 1px solid #000;
+}
+nav.primary ul {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 12px;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+}
+nav.primary a {
+  display: block;
+  padding: 13px 16px;
+  color: #d7d2c6;
+  text-decoration: none;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 13px;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+nav.primary a:hover { color: #fff; background: #2c2a26; }
+nav.primary a.active { color: #fff; box-shadow: inset 0 -3px 0 var(--accent); }
+
+/* ---------- Layout ---------- */
+main {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 40px 24px 20px;
+}
+.lede {
+  font-size: 21px;
+  line-height: 1.6;
+  color: var(--muted);
+  border-left: 4px solid var(--accent);
+  padding-left: 20px;
+  margin: 0 0 34px;
+}
+h2.section {
+  font-size: 28px;
+  margin: 46px 0 6px;
+  padding-bottom: 6px;
+}
+h2.section .num {
+  display: block;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 2px;
+}
+h3 { font-size: 21px; margin: 32px 0 4px; }
+p { margin: 0 0 16px; }
+hr.rule { border: 0; border-top: 1px solid var(--rule); margin: 34px 0; }
+
+/* ---------- Pull quote / primary source ---------- */
+blockquote {
+  margin: 26px 0;
+  padding: 18px 22px;
+  background: var(--paper-deep);
+  border-left: 4px solid var(--gold);
+  font-size: 19px;
+  font-style: italic;
+}
+blockquote cite {
+  display: block;
+  margin-top: 10px;
+  font-style: normal;
+  font-size: 14px;
+  color: var(--muted);
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ---------- Theme cards ---------- */
+.triad {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  margin: 30px 0;
+}
+.triad .card {
+  background: #fff;
+  border: 1px solid var(--rule);
+  border-top: 4px solid var(--accent);
+  padding: 18px;
+}
+.triad .card h4 {
+  margin: 0 0 6px;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  font-size: 14px;
+  color: var(--accent-dark);
+}
+.triad .card p { font-size: 15px; margin: 0; color: var(--muted); }
+
+/* ---------- Figure / media placeholder ---------- */
+figure {
+  margin: 28px 0;
+  border: 1px solid var(--rule);
+  background: #fff;
+}
+.media-placeholder {
+  background: repeating-linear-gradient(45deg, #e9e4d8, #e9e4d8 12px, #efe9dd 12px, #efe9dd 24px);
+  color: var(--muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 200px;
+  text-align: center;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 14px;
+  padding: 24px;
+}
+figcaption {
+  padding: 12px 16px;
+  font-size: 14px;
+  color: var(--muted);
+  border-top: 1px solid var(--rule);
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+
+/* ---------- Timeline ---------- */
+.timeline { list-style: none; padding: 0; margin: 26px 0; }
+.timeline li {
+  position: relative;
+  padding: 0 0 22px 28px;
+  border-left: 2px solid var(--rule);
+  margin-left: 8px;
+}
+.timeline li::before {
+  content: "";
+  position: absolute;
+  left: -7px; top: 4px;
+  width: 12px; height: 12px;
+  background: var(--accent);
+  border-radius: 50%;
+}
+.timeline .year {
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--accent-dark);
+}
+
+/* ---------- Stats ---------- */
+.stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 14px;
+  margin: 28px 0;
+  text-align: center;
+}
+.stats .stat {
+  background: var(--slate);
+  color: #fff;
+  padding: 18px 10px;
+  border-radius: 3px;
+}
+.stats .big {
+  display: block;
+  font-size: 30px;
+  font-weight: 700;
+  color: #ffd76b;
+}
+.stats small {
+  display: block;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 12px;
+  letter-spacing: 0.04em;
+  color: #cdd4db;
+  margin-top: 4px;
+}
+
+/* ---------- Bibliography ---------- */
+.biblio h3 {
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 6px;
+  margin-top: 40px;
+}
+.biblio dl { margin: 0; }
+.biblio dt {
+  margin-top: 22px;
+  text-indent: -2em;
+  padding-left: 2em;
+}
+.biblio dd {
+  margin: 6px 0 0 0;
+  padding-left: 2em;
+  font-size: 16px;
+  color: var(--muted);
+  font-style: italic;
+}
+.biblio a { color: var(--accent-dark); word-break: break-word; }
+
+/* ---------- Process paper ---------- */
+.process p { text-align: justify; }
+.wordcount-note {
+  background: #fff;
+  border: 1px dashed var(--gold);
+  padding: 12px 16px;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+  font-size: 13px;
+  color: var(--muted);
+  margin: 24px 0;
+}
+
+/* ---------- Footer ---------- */
+footer {
+  background: var(--ink);
+  color: #b9b3a6;
+  margin-top: 50px;
+  border-top: 5px solid var(--accent);
+}
+footer .inner {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 26px 24px;
+  font-size: 14px;
+  font-family: "Helvetica Neue", Arial, sans-serif;
+}
+footer a { color: #e6e0d4; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 720px) {
+  .triad, .stats { grid-template-columns: 1fr; }
+  body { font-size: 17px; }
+}
