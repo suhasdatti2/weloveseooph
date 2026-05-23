@@ -21,24 +21,67 @@ html { scroll-behavior: smooth; }
 
 body {
   margin: 0;
-  background: var(--paper);
   color: var(--ink);
   font-family: "Iowan Old Style", "Palatino Linotype", Palatino, Georgia, "Times New Roman", serif;
   font-size: 18px;
   line-height: 1.7;
   -webkit-font-smoothing: antialiased;
+  /* Layered, decorated background: glow + pixel grid over deep slate */
+  background-color: #15171c;
+  background-image:
+    radial-gradient(circle at 15% -5%, rgba(179, 18, 44, 0.30), transparent 42%),
+    radial-gradient(circle at 88% 8%, rgba(74, 110, 161, 0.28), transparent 45%),
+    radial-gradient(circle at 50% 120%, rgba(184, 137, 61, 0.22), transparent 50%),
+    repeating-linear-gradient(0deg, rgba(255,255,255,0.035) 0 1px, transparent 1px 26px),
+    repeating-linear-gradient(90deg, rgba(255,255,255,0.035) 0 1px, transparent 1px 26px);
+  background-attachment: fixed;
+}
+
+/* Decorative pixel-strip that runs along the very top of every page */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0; right: 0;
+  height: 6px;
+  z-index: 100;
+  background: repeating-linear-gradient(
+    90deg,
+    var(--accent) 0 16px,
+    #2c333d 16px 32px,
+    var(--gold) 32px 48px,
+    #4a6ea1 48px 64px
+  );
 }
 
 /* ---------- Masthead ---------- */
 .masthead {
-  background: var(--slate);
   color: #f4f1ea;
   border-bottom: 5px solid var(--accent);
+  position: relative;
+  overflow: hidden;
+  background-color: #2b333d;
+  background-image:
+    linear-gradient(135deg, rgba(179,18,44,0.35), transparent 55%),
+    linear-gradient(180deg, #354150, #232a32);
+}
+/* subtle scanlines across the masthead for a retro-display feel */
+.masthead::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    0deg,
+    rgba(0,0,0,0.12) 0 2px,
+    transparent 2px 4px
+  );
+  pointer-events: none;
 }
 .masthead-inner {
   max-width: var(--max);
   margin: 0 auto;
   padding: 26px 24px 18px;
+  position: relative;
+  z-index: 2;
 }
 .eyebrow {
   font-family: "Helvetica Neue", Arial, sans-serif;
@@ -106,9 +149,27 @@ nav.primary a.active { color: #fff; box-shadow: inset 0 -3px 0 var(--accent); }
 /* ---------- Layout ---------- */
 main {
   max-width: var(--max);
-  margin: 0 auto;
-  padding: 40px 24px 20px;
+  margin: 32px auto;
+  padding: 44px 48px 40px;
+  background: var(--paper);
+  border: 1px solid #000;
+  border-top: 4px solid var(--accent);
+  border-radius: 4px;
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.45);
+  position: relative;
 }
+/* faint corner pixel marks on the content card */
+main::before,
+main::after {
+  content: "";
+  position: absolute;
+  width: 14px;
+  height: 14px;
+  border: 3px solid var(--gold);
+  opacity: 0.6;
+}
+main::before { top: 14px; left: 14px; border-right: 0; border-bottom: 0; }
+main::after { bottom: 14px; right: 14px; border-left: 0; border-top: 0; }
 .lede {
   font-size: 21px;
   line-height: 1.6;
